@@ -1,0 +1,99 @@
+---
+import { getCollection } from "astro:content";
+import PageLayout from "@layouts/PageLayout.astro";
+import Container from "@components/Container.astro";
+import { dateRange } from "@lib/utils";
+import { WORK } from "@consts";
+
+const collection = (await getCollection("work"))
+  .sort(
+    (a, b) =>
+      new Date(b.data.dateStart).valueOf() -
+      new Date(a.data.dateStart).valueOf()
+  );
+
+const work = await Promise.all(
+  collection.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  })
+);
+---
+
+<PageLayout title={WORK.TITLE} description={WORK.DESCRIPTION}>
+  <Container>
+
+    <div class="space-y-14">
+
+      <!-- HEADER -->
+
+      <section class="animate space-y-4">
+
+        <h1 class="text-4xl font-bold text-black dark:text-white">
+          Experience
+        </h1>
+
+        <p class="max-w-2xl opacity-80 leading-7">
+          Professional experience across penetration testing, Active Directory
+          security, application security, AI security testing, enterprise
+          infrastructure assessments, and adversarial simulations.
+        </p>
+
+      </section>
+
+      <!-- EXPERIENCE TIMELINE -->
+
+      <section>
+
+        <ul class="flex flex-col gap-8">
+
+          {
+            work.map((entry) => (
+
+              <li
+                class="animate rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 hover:border-neutral-500 transition-all"
+              >
+
+                <!-- DATE -->
+
+                <div class="text-sm opacity-60 mb-2">
+                  {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+                </div>
+
+                <!-- COMPANY -->
+
+                <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2">
+
+                  <div>
+
+                    <h2 class="text-xl font-semibold text-black dark:text-white">
+                      {entry.data.company}
+                    </h2>
+
+                    <div class="opacity-75 mt-1">
+                      {entry.data.role}
+                    </div>
+
+                  </div>
+
+                </div>
+
+                <!-- CONTENT -->
+
+                <article class="mt-5 opacity-85 leading-7">
+                  <entry.Content />
+                </article>
+
+              </li>
+
+            ))
+          }
+
+        </ul>
+
+      </section>
+
+    </div>
+
+  </Container>
+</PageLayout>

@@ -1,0 +1,310 @@
+---
+import { getCollection } from "astro:content";
+import Container from "@components/Container.astro";
+import PageLayout from "@layouts/PageLayout.astro";
+import ArrowCard from "@components/ArrowCard.astro";
+import Link from "@components/Link.astro";
+import { dateRange } from "@lib/utils";
+import { SITE, HOME, SOCIALS } from "@consts";
+
+const blog = (await getCollection("blog"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_POSTS_ON_HOMEPAGE);
+
+const projects = (await getCollection("projects"))
+  .filter((project) => !project.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, SITE.NUM_PROJECTS_ON_HOMEPAGE);
+
+const allwork = (await getCollection("work"))
+  .sort(
+    (a, b) =>
+      new Date(b.data.dateStart).valueOf() -
+      new Date(a.data.dateStart).valueOf(),
+  )
+  .slice(0, SITE.NUM_WORKS_ON_HOMEPAGE);
+
+const work = await Promise.all(
+  allwork.map(async (item) => {
+    const { Content } = await item.render();
+    return { ...item, Content };
+  }),
+);
+---
+
+<PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
+  <Container>
+
+    <div class="space-y-20">
+
+      <!-- HERO SECTION -->
+
+      <section class="space-y-6">
+
+        <div class="space-y-3">
+          <h1 class="animate text-4xl md:text-5xl font-bold text-black dark:text-white">
+            Kanishk Jha ⚡
+          </h1>
+
+          <p class="animate text-lg opacity-80">
+            Offensive Security Engineer | VAPT | Active Directory | Adversarial Testing
+          </p>
+        </div>
+
+        <article class="space-y-4 text-[15px] leading-7">
+
+          <p class="animate">
+            I’m Kanishk Jha — an Offensive Security Engineer focused on
+            penetration testing, Active Directory security, adversarial
+            simulations, and real-world attack paths.
+          </p>
+
+          <p class="animate">
+            My experience spans web application security, internal network
+            assessments, Active Directory auditing, AI security testing,
+            and cloud security reviews across enterprise environments.
+          </p>
+
+          <p class="animate">
+            I’ve worked on offensive security engagements involving
+            authentication abuse, privilege escalation, lateral movement
+            analysis, vulnerable lab development, and application security
+            testing.
+          </p>
+
+          <p class="animate">
+            My work has been recognized by organizations including
+            NASA, Philips, Oracle, and LATAM Airways through responsible
+            vulnerability disclosure and security research initiatives.
+          </p>
+
+          <p class="animate">
+            I actively build security tooling, create vulnerable labs,
+            participate in CTFs, and document technical research covering
+            Active Directory attacks, web exploitation, cloud security,
+            and adversarial testing methodologies.
+          </p>
+
+        </article>
+
+      </section>
+
+      <!-- STATS SECTION -->
+
+      <section class="animate">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <div class="rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 hover:border-neutral-500 transition-all">
+            <div class="text-3xl font-bold text-black dark:text-white">
+              4+
+            </div>
+
+            <div class="opacity-80 mt-2">
+              Hall of Fame & Security Recognitions
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 hover:border-neutral-500 transition-all">
+            <div class="text-3xl font-bold text-black dark:text-white">
+              AD / Web / Cloud
+            </div>
+
+            <div class="opacity-80 mt-2">
+              Offensive Security & Enterprise Assessments
+            </div>
+          </div>
+
+          <div class="rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 hover:border-neutral-500 transition-all">
+            <div class="text-3xl font-bold text-black dark:text-white">
+              CTF / Research
+            </div>
+
+            <div class="opacity-80 mt-2">
+              Active Directory, Adversarial Testing & Tooling
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CTA BUTTONS -->
+
+      <section class="animate">
+        <div class="flex flex-wrap gap-4">
+
+          <a
+            href="/projects"
+            class="rounded-xl border border-neutral-200 dark:border-neutral-800 px-5 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
+          >
+            View Projects
+          </a>
+
+          <a
+            href="/achievements"
+            class="rounded-xl border border-neutral-200 dark:border-neutral-800 px-5 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
+          >
+            Achievements
+          </a>
+
+          <a
+            href="/work"
+            class="rounded-xl border border-neutral-200 dark:border-neutral-800 px-5 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
+          >
+            Experience
+          </a>
+
+        </div>
+      </section>
+
+      <!-- BLOG SECTION -->
+
+      <section class="animate space-y-6">
+
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5 class="font-semibold text-black dark:text-white text-xl">
+            Latest Writeups
+          </h5>
+
+          <Link href="/blog">
+            See all writeups
+          </Link>
+        </div>
+
+        <ul class="flex flex-col gap-4">
+          {
+            blog.map((post) => (
+              <li>
+                <ArrowCard entry={post} />
+              </li>
+            ))
+          }
+        </ul>
+
+      </section>
+
+      <!-- WORK SECTION -->
+
+      <section class="animate space-y-6">
+
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5 class="font-semibold text-black dark:text-white text-xl">
+            Experience
+          </h5>
+
+          <Link href="/work">
+            See all experience
+          </Link>
+        </div>
+
+        <ul class="flex flex-col space-y-6">
+
+          {
+            work.map((entry) => (
+              <li class="rounded-xl border border-neutral-200 dark:border-neutral-800 p-5">
+
+                <div class="text-sm opacity-75">
+                  {dateRange(entry.data.dateStart, entry.data.dateEnd)}
+                </div>
+
+                <div class="font-semibold text-black dark:text-white mt-1">
+                  {entry.data.company}
+                </div>
+
+                <div class="text-sm opacity-75">
+                  {entry.data.role}
+                </div>
+
+                <article class="opacity-80 mt-3">
+                  <entry.Content />
+                </article>
+
+              </li>
+            ))
+          }
+
+        </ul>
+
+      </section>
+
+      <!-- PROJECTS SECTION -->
+
+      <section class="animate space-y-6">
+
+        <div class="flex flex-wrap gap-y-2 items-center justify-between">
+          <h5 class="font-semibold text-black dark:text-white text-xl">
+            Security Projects
+          </h5>
+
+          <Link href="/projects">
+            See all projects
+          </Link>
+        </div>
+
+        <ul class="flex flex-col gap-4">
+          {
+            projects.map((project) => (
+              <li>
+                <ArrowCard entry={project} />
+              </li>
+            ))
+          }
+        </ul>
+
+      </section>
+
+      <!-- CONNECT SECTION -->
+
+      <section class="animate space-y-4">
+
+        <h5 class="font-semibold text-black dark:text-white text-xl">
+          Connect
+        </h5>
+
+        <article>
+          <p class="opacity-80">
+            Open to discussions around offensive security, Active Directory,
+            application security, adversarial testing, research collaboration,
+            and cybersecurity tooling.
+          </p>
+        </article>
+
+        <ul class="flex flex-wrap gap-2">
+
+          {
+            SOCIALS.map((SOCIAL) => (
+              <li class="flex gap-x-2 text-nowrap">
+
+                <Link
+                  href={SOCIAL.HREF}
+                  external
+                  aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
+                >
+                  {SOCIAL.NAME}
+                </Link>
+
+                {"/"}
+
+              </li>
+            ))
+          }
+
+          <li class="line-clamp-1">
+
+            <Link
+              href={`mailto:${SITE.EMAIL}`}
+              aria-label={`Email ${SITE.NAME}`}
+            >
+              {SITE.EMAIL}
+            </Link>
+
+          </li>
+
+        </ul>
+
+      </section>
+
+    </div>
+
+  </Container>
+</PageLayout>
