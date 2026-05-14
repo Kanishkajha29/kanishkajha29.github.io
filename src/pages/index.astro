@@ -36,139 +36,163 @@ const work = await Promise.all(
 <PageLayout title={HOME.TITLE} description={HOME.DESCRIPTION}>
   <Container>
 
-    <div class="space-y-20">
+    <div class="space-y-24">
 
-      <!-- HERO SECTION -->
+      <!-- HERO -->
 
-      <section class="space-y-6">
+      <section class="animate space-y-8 pt-6">
 
-        <div class="space-y-3">
-          <h1 class="animate text-4xl md:text-5xl font-bold text-black dark:text-white">
-            Kanishka Jha ⚡
-          </h1>
+        <div class="space-y-5">
 
-          <p class="animate text-lg opacity-80">
-            Offensive Security Engineer | VAPT | Active Directory | Adversarial Testing
-          </p>
-        </div>
-
-        <article class="space-y-4 text-[15px] leading-7">
-
-          <p class="animate">
-            I’m Kanishka Jha — an Offensive Security Engineer focused on
-            penetration testing, Active Directory security, adversarial
-            simulations, and real-world attack paths.
-          </p>
-
-          <p class="animate">
-            My experience spans web application security, internal network
-            assessments, Active Directory auditing, AI security testing,
-            and cloud security reviews across enterprise environments.
-          </p>
-
-          <p class="animate">
-            I’ve worked on offensive security engagements involving
-            authentication abuse, privilege escalation, lateral movement
-            analysis, vulnerable lab development, and application security
-            testing.
-          </p>
-
-          <p class="animate">
-            My work has been recognized by organizations including
-            NASA, Philips, Oracle, and LATAM Airways through responsible
-            vulnerability disclosure and security research initiatives.
-          </p>
-
-          <p class="animate">
-            I actively build security tooling, create vulnerable labs,
-            participate in CTFs, and document technical research covering
-            Active Directory attacks, web exploitation, cloud security,
-            and adversarial testing methodologies.
-          </p>
-
-        </article>
-
-      </section>
-
-      <!-- STATS SECTION -->
-
-      <section class="animate">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-          <div class="rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 hover:border-neutral-500 transition-all">
-            <div class="text-3xl font-bold text-black dark:text-white">
-              4+
-            </div>
-
-            <div class="opacity-80 mt-2">
-              Hall of Fame & Security Recognitions
-            </div>
+          <div class="inline-flex items-center rounded-full border border-neutral-200 dark:border-neutral-800 px-4 py-1 text-sm opacity-80">
+            Offensive Security • Active Directory • AI Security
           </div>
 
-          <div class="rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 hover:border-neutral-500 transition-all">
-            <div class="text-3xl font-bold text-black dark:text-white">
-              AD / Web / Cloud
-            </div>
+          <div class="space-y-4">
 
-            <div class="opacity-80 mt-2">
-              Offensive Security & Enterprise Assessments
-            </div>
-          </div>
+            <h1 class="text-5xl md:text-7xl font-bold tracking-tight text-black dark:text-white leading-tight">
+              Kanishka Jha
+            </h1>
 
-          <div class="rounded-xl border border-neutral-200 dark:border-neutral-800 p-5 hover:border-neutral-500 transition-all">
-            <div class="text-3xl font-bold text-black dark:text-white">
-              CTF / Research
-            </div>
+            <p class="text-xl md:text-2xl opacity-80 max-w-3xl leading-relaxed">
+              Offensive Security Engineer focused on penetration testing,
+              Active Directory attacks, adversarial simulations,
+              AI security testing, and enterprise security assessments.
+            </p>
 
-            <div class="opacity-80 mt-2">
-              Active Directory, Adversarial Testing & Tooling
-            </div>
           </div>
 
         </div>
-      </section>
 
-      <!-- CTA BUTTONS -->
-
-      <section class="animate">
         <div class="flex flex-wrap gap-4">
 
           <a
             href="/projects"
-            class="rounded-xl border border-neutral-200 dark:border-neutral-800 px-5 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
+            class="rounded-xl bg-black text-white dark:bg-white dark:text-black px-6 py-3 font-medium hover:opacity-90 transition-all"
           >
             View Projects
           </a>
 
           <a
-            href="/achievements"
-            class="rounded-xl border border-neutral-200 dark:border-neutral-800 px-5 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
+            href="/Resume_Kanishka_Jha_1.pdf"
+            target="_blank"
+            class="rounded-xl border border-neutral-300 dark:border-neutral-700 px-6 py-3 hover:border-neutral-500 transition-all"
           >
-            Achievements
-          </a>
-
-          <a
-            href="/work"
-            class="rounded-xl border border-neutral-200 dark:border-neutral-800 px-5 py-3 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all"
-          >
-            Experience
+            Download Resume
           </a>
 
         </div>
+
       </section>
 
-      <!-- BLOG SECTION -->
+      <!-- ABOUT -->
+
+      <section class="animate">
+
+        <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-8 md:p-10">
+
+          <div class="space-y-6">
+
+            <div>
+              <h2 class="text-2xl font-semibold text-black dark:text-white">
+                About
+              </h2>
+            </div>
+
+            <div class="space-y-5 text-[15px] leading-8 opacity-90">
+
+              <p>
+                I work across offensive security, Active Directory security,
+                adversarial testing, and enterprise attack simulation workflows.
+              </p>
+
+              <p>
+                My experience includes internal network assessments, web
+                application penetration testing, authentication abuse testing,
+                privilege escalation analysis, cloud security validation,
+                and AI security testing.
+              </p>
+
+              <p>
+                I actively build offensive security tooling, vulnerable labs,
+                and technical research focused on Active Directory attacks,
+                enterprise attack paths, web exploitation, and adversarial AI.
+              </p>
+
+              <p>
+                My security research and responsible disclosure efforts have
+                been recognized by organizations including NASA, Philips,
+                Oracle, and LATAM Airways.
+              </p>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- STATS -->
+
+      <section class="animate">
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+
+          <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 hover:border-neutral-500 transition-all">
+
+            <div class="text-4xl font-bold text-black dark:text-white">
+              4+
+            </div>
+
+            <div class="mt-3 text-sm opacity-80">
+              Hall of Fame & Security Recognitions
+            </div>
+
+          </div>
+
+          <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 hover:border-neutral-500 transition-all">
+
+            <div class="text-4xl font-bold text-black dark:text-white">
+              AD / Web / Cloud
+            </div>
+
+            <div class="mt-3 text-sm opacity-80">
+              Enterprise Offensive Security Assessments
+            </div>
+
+          </div>
+
+          <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 hover:border-neutral-500 transition-all">
+
+            <div class="text-4xl font-bold text-black dark:text-white">
+              CTF / Research
+            </div>
+
+            <div class="mt-3 text-sm opacity-80">
+              Active Directory, Adversarial Testing & Security Tooling
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- WRITEUPS -->
 
       <section class="animate space-y-6">
 
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white text-xl">
+        <div class="flex items-center justify-between flex-wrap gap-y-2">
+
+          <h2 class="text-2xl font-semibold text-black dark:text-white">
             Latest Writeups
-          </h5>
+          </h2>
 
           <Link href="/blog">
-            See all writeups
+            View all
           </Link>
+
         </div>
 
         <ul class="flex flex-col gap-4">
@@ -183,39 +207,41 @@ const work = await Promise.all(
 
       </section>
 
-      <!-- WORK SECTION -->
+      <!-- EXPERIENCE -->
 
       <section class="animate space-y-6">
 
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white text-xl">
+        <div class="flex items-center justify-between flex-wrap gap-y-2">
+
+          <h2 class="text-2xl font-semibold text-black dark:text-white">
             Experience
-          </h5>
+          </h2>
 
           <Link href="/work">
-            See all experience
+            View all
           </Link>
+
         </div>
 
-        <ul class="flex flex-col space-y-6">
+        <ul class="flex flex-col gap-5">
 
           {
             work.map((entry) => (
-              <li class="rounded-xl border border-neutral-200 dark:border-neutral-800 p-5">
+              <li class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-6 hover:border-neutral-500 transition-all">
 
-                <div class="text-sm opacity-75">
+                <div class="text-sm opacity-70">
                   {dateRange(entry.data.dateStart, entry.data.dateEnd)}
                 </div>
 
-                <div class="font-semibold text-black dark:text-white mt-1">
+                <div class="font-semibold text-lg text-black dark:text-white mt-1">
                   {entry.data.company}
                 </div>
 
-                <div class="text-sm opacity-75">
+                <div class="text-sm opacity-70">
                   {entry.data.role}
                 </div>
 
-                <article class="opacity-80 mt-3">
+                <article class="mt-4 opacity-85 leading-7">
                   <entry.Content />
                 </article>
 
@@ -227,18 +253,20 @@ const work = await Promise.all(
 
       </section>
 
-      <!-- PROJECTS SECTION -->
+      <!-- PROJECTS -->
 
       <section class="animate space-y-6">
 
-        <div class="flex flex-wrap gap-y-2 items-center justify-between">
-          <h5 class="font-semibold text-black dark:text-white text-xl">
+        <div class="flex items-center justify-between flex-wrap gap-y-2">
+
+          <h2 class="text-2xl font-semibold text-black dark:text-white">
             Security Projects
-          </h5>
+          </h2>
 
           <Link href="/projects">
-            See all projects
+            View all
           </Link>
+
         </div>
 
         <ul class="flex flex-col gap-4">
@@ -253,54 +281,58 @@ const work = await Promise.all(
 
       </section>
 
-      <!-- CONNECT SECTION -->
+      <!-- CONNECT -->
 
-      <section class="animate space-y-4">
+      <section class="animate">
 
-        <h5 class="font-semibold text-black dark:text-white text-xl">
-          Connect
-        </h5>
+        <div class="rounded-2xl border border-neutral-200 dark:border-neutral-800 p-8">
 
-        <article>
-          <p class="opacity-80">
-            Open to discussions around offensive security, Active Directory,
-            application security, adversarial testing, research collaboration,
-            and cybersecurity tooling.
-          </p>
-        </article>
+          <div class="space-y-5">
 
-        <ul class="flex flex-wrap gap-2">
+            <h2 class="text-2xl font-semibold text-black dark:text-white">
+              Connect
+            </h2>
 
-          {
-            SOCIALS.map((SOCIAL) => (
-              <li class="flex gap-x-2 text-nowrap">
+            <p class="opacity-80 leading-7">
+              Open to discussions around offensive security, Active Directory,
+              adversarial testing, enterprise security assessments,
+              cybersecurity tooling, and security research collaboration.
+            </p>
+
+            <ul class="flex flex-wrap gap-3">
+
+              {
+                SOCIALS.map((SOCIAL) => (
+                  <li>
+
+                    <Link
+                      href={SOCIAL.HREF}
+                      external
+                      aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
+                    >
+                      {SOCIAL.NAME}
+                    </Link>
+
+                  </li>
+                ))
+              }
+
+              <li>
 
                 <Link
-                  href={SOCIAL.HREF}
-                  external
-                  aria-label={`${SITE.NAME} on ${SOCIAL.NAME}`}
+                  href={`mailto:${SITE.EMAIL}`}
+                  aria-label={`Email ${SITE.NAME}`}
                 >
-                  {SOCIAL.NAME}
+                  {SITE.EMAIL}
                 </Link>
 
-                {"/"}
-
               </li>
-            ))
-          }
 
-          <li class="line-clamp-1">
+            </ul>
 
-            <Link
-              href={`mailto:${SITE.EMAIL}`}
-              aria-label={`Email ${SITE.NAME}`}
-            >
-              {SITE.EMAIL}
-            </Link>
+          </div>
 
-          </li>
-
-        </ul>
+        </div>
 
       </section>
 
