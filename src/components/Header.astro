@@ -6,28 +6,37 @@ import { SITE } from "@consts";
 
 <header>
   <Container>
-    <div class="flex flex-wrap gap-y-2 justify-between">
+    <div class="flex flex-wrap items-center justify-between gap-y-2">
       <Link href="/" underline={false}>
-        <div class="font-semibold">
+        <div class="font-semibold text-black dark:text-white transition hover:opacity-80">
           {SITE.NAME}
         </div>
       </Link>
-      <nav class="flex gap-1">
-        <Link href="/blog"> blog </Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/work"> work </Link>
-        <span>
-          {`/`}
-        </span>
-        <Link href="/projects"> projects </Link>
 
-        <span>
-          {`/`}
-        </span>
+      <nav class="flex flex-wrap items-center gap-1 text-sm md:text-base">
+        <Link href="/blog">blog</Link>
 
-        <Link href="/achievements"> achievements </Link>
+        <span>{`/`}</span>
+
+        <Link href="/work">work</Link>
+
+        <span>{`/`}</span>
+
+        <Link href="/projects">projects</Link>
+
+        <span>{`/`}</span>
+
+        <Link href="/achievements">achievements</Link>
+
+        <span>{`/`}</span>
+
+        <a
+          href="/Resume_Kanishka_Jha_1.pdf"
+          target="_blank"
+          class="underline underline-offset-4 transition hover:opacity-70"
+        >
+          resume
+        </a>
       </nav>
     </div>
   </Container>
