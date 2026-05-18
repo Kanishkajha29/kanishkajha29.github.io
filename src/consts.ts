@@ -41,4 +41,4 @@ export const SOCIALS: Socials = [
     NAME: "linkedin",
     HREF: "https://www.linkedin.com/in/kanishka-jha-341987249/",
   },
-];
+];  
